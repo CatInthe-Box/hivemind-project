@@ -1,8 +1,3 @@
-// These are imported dynamically INSIDE getServerSideProps below, not up
-// here at the top of the file. That keeps all database/mongoose code on
-// the server only, so it never gets bundled into the browser JavaScript
-// (which can't run database code and would crash if it tried).
-
 export async function getServerSideProps({ params }) {
   const { connectDB } = await import('../../lib/db');
   const { default: Batch } = await import('../../models/Batch');
@@ -84,11 +79,7 @@ export default function VerifyPage({ batch, onChain, hashMatch }) {
             <p>Registered: {new Date(onChain.timestamp * 1000).toLocaleString()}</p>
             <p>Registered by: {onChain.registeredBy}</p>
             {batch.blockchainTxHash && (
-              
-                href={`https://amoy.polygonscan.com/tx/${batch.blockchainTxHash}`}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={`https://amoy.polygonscan.com/tx/${batch.blockchainTxHash}`} target="_blank" rel="noreferrer">
                 View transaction on Polygonscan →
               </a>
             )}

@@ -1,5 +1,7 @@
 import { connectDB } from '../../lib/db';
 import Batch from '../../models/Batch';
+import '../../models/Hive';
+import '../../models/Beekeeper';
 import { getBatchFromChain } from '../../lib/blockchain';
 
 export async function getServerSideProps({ params }) {

@@ -1,5 +1,6 @@
 import { connectDB } from '../../../lib/db';
 import Hive from '../../../models/Hive';
+import '../../../models/Beekeeper';
 
 export default async function handler(req, res) {
   await connectDB();

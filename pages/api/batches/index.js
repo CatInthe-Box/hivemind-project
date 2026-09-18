@@ -1,6 +1,7 @@
 import { connectDB } from '../../../lib/db';
 import Batch from '../../../models/Batch';
 import Hive from '../../../models/Hive';
+import '../../../models/Beekeeper';
 import { computeDataHash, registerBatchOnChain } from '../../../lib/blockchain';
 
 // Simple rule-based risk score from the hive's most recent IoT reading.
